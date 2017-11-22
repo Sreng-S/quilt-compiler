@@ -78,7 +78,7 @@ install:
       pip install -U numpy pytest
     fi
   # install quilt from setup.py
-  - travis_retry pip install --only-binary 'tables' compiler
+  - travis_retry pip install --only-binary 'tables' ./compiler
   - |
     if [[ "$TEST_REGISTRY" = true ]]; then
       travis_retry pip install -r registry/requirements.txt
@@ -89,5 +89,5 @@ script:
   - pytest compiler
   - |
     if [[ "$TEST_REGISTRY" = true ]]; then
-      pytest registry
+      pytest ./registry
     fi
